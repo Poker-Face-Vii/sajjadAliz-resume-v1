@@ -1,0 +1,136 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/main.scss";
+html {
+	font-size: 13px;
+}
+body {
+	background-color: $cBgDark;
+}
+h1 {
+	color: $cTextGray;
+	// font-weight: normal;
+	margin: 20px;
+	font-size: clamp(40px, 8vw, 80px);
+	font-family: $font-Roboto;
+}
+
+header {
+	padding: 0 50px;
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 30px 0;
+		.logo-img {
+			height: 40px;
+		}
+		.desktop-menu {
+			ol {
+				li {
+					display: inline;
+					a {
+						color: $cTextLight;
+						padding: 15px;
+						font-family: $font-Mono;
+						text-decoration: none;
+						font-size: 1rem;
+						&:hover {
+							color: $cPrimary;
+						}
+						&::before {
+							color: $cPrimary;
+						}
+						&.item-1 {
+							&::before {
+								content: "01" ". ";
+							}
+						}
+						&.item-2 {
+							&::before {
+								content: "02" ". ";
+							}
+						}
+						&.item-3 {
+							&::before {
+								content: "03" ". ";
+							}
+						}
+						&.item-4 {
+							&::before {
+								content: "04" ". ";
+							}
+						}
+
+						&.resume-btn {
+							color: $cPrimary;
+							margin-left: 10px;
+							padding: 10px;
+							border: 1px solid $cPrimary;
+							border-radius: 4px;
+							transition: 300ms;
+							&:hover {
+								background-color: fade-out($cPrimary, 0.8);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin FixedSide {
+	position: fixed;
+	z-index: 10;
+	bottom: 0;
+	ul li a i {
+		font-size: 1.5rem;
+		color: $cTextGray;
+		padding: 15px 0;
+		transition: 300ms;
+		&:hover {
+			color: $cPrimary;
+		}
+	}
+	ul::after {
+		content: "";
+		display: block;
+		width: 1px;
+		height: 90px;
+		margin: 0px auto;
+		background-color: $cTextGray;
+		border: none;
+	}
+}
+
+.side__left {
+	@include FixedSide;
+	left: 40px;
+	right: auto;
+}
+
+.side__right {
+	@include FixedSide;
+	right: 40px;
+   left: auto;
+   ul{
+      width: 30px;
+   }
+   li{
+
+      transform:translateY(-200px) rotate(90deg);
+   }
+	li a {
+		text-decoration: none;
+		color: $cTextGray;
+      font-family: $font-Roboto;
+      letter-spacing: .2em;
+      transition: 300ms;
+      
+		&:hover {
+         color: $cPrimary;
+         letter-spacing: .3em;
+
+		}
+	}
+}
